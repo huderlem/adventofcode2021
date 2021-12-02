@@ -1,0 +1,3 @@
+# Ignore profiling artifacts
+*.prof
+*.exe
