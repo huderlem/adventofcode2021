@@ -21,6 +21,7 @@ type node struct {
 	risk           int
 	gScore, fScore int
 	prev           point
+	index          int
 }
 
 func parseInput() (map[point]*node, int, int) {
@@ -101,6 +102,8 @@ func findPath(nodes map[point]*node, origin, dest point, width, height int) []*n
 				}
 				if !found {
 					heap.Push(&candidates, neighbor)
+				} else {
+					candidates.update(neighbor, neighbor.fScore)
 				}
 			}
 		}
